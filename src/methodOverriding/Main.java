@@ -2,7 +2,7 @@ package methodOverriding;
 
 public class Main {
     static void main() {
-        Over o=new Over();
+        MethodOverRiding o=new Over();
         o.start();
     }
 }
