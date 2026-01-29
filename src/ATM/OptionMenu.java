@@ -160,8 +160,8 @@ public class OptionMenu extends ATMOperations {
     public void withdraw(double amount , int accountType) {
 
         if (accountType == 1) {
-            if(account.withdrawChecking(amount)) {
-                System.out.println("Successfully Withdraw in Checking Account");
+            if(account.withdrawCurrent(amount)) {
+                System.out.println("Successfully Withdraw in Current Account");
             }} else if (accountType == 2) {
             if(account.withdrawSaving(amount)) {
                 System.out.println("Successfully Withdraw in Saving Account");
@@ -175,8 +175,8 @@ public class OptionMenu extends ATMOperations {
     @Override
     public void deposit(double amount , int accountType) {
         if (accountType == 1) {
-            account.depositChecking(amount);
-            System.out.println("Successfully Deposit in Checking Account");
+            account.depositCurrent(amount);
+            System.out.println("Successfully Deposit in Current Account");
         } else if (accountType == 2) {
             account.depositSaving(amount);
             System.out.println("Successfully Deposit in Saving Account");
@@ -187,7 +187,7 @@ public class OptionMenu extends ATMOperations {
 
     @Override
     public void checkBalance() {
-        System.out.println("Checking Balance: " + account.getCheckingBalance());
+        System.out.println("Current Balance: " + account.getCurrentBalance());
         System.out.println("Saving Balance: " + account.getSavingBalance());
     }
 
@@ -210,7 +210,7 @@ public class OptionMenu extends ATMOperations {
                     break;
 
                 case 2:
-                    System.out.println("Choose Account: 1.Checking  2.Saving");
+                    System.out.println("Choose Account: 1.Current  2.Saving");
                     int choice = input.nextInt();
                     System.out.print("Enter amount to deposit: ");
                     double depAmount = input.nextDouble();
@@ -218,7 +218,7 @@ public class OptionMenu extends ATMOperations {
                     break;
 
                 case 3:
-                    System.out.println("Choose Account: 1.Checking  2.Saving");
+                    System.out.println("Choose Account: 1.Current  2.Saving");
                     int wchoice = input.nextInt();
                     System.out.print("Enter amount to withdraw: ");
                     double withAmount = input.nextDouble();
@@ -226,10 +226,9 @@ public class OptionMenu extends ATMOperations {
                     break;
 
                 case 4:
-                    System.out.println("Thank you for using " + BANK_NAME + " ATM!");
+                    System.out.println("Thank you for using " + bank + " ATM!");
                     break;
                 default:
-
                     System.out.println("Invalid choice, try again.");
             }
         } while (option != 4);
